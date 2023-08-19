@@ -1,3 +1,7 @@
+// Faça um algoritmo que leia 10 valores e retorne: 
+// a) Quantos valores estão no intervalo [5,15] 
+// b) Quantos valores estão no intervalo [32,45] 
+// c) Quantos valores estão fora dos intervalos previstos acima. 
 
 #include <stdio.h>
 
