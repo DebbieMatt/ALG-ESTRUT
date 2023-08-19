@@ -1,4 +1,4 @@
-
+// Façaumalgoritmoqueleia10valoreseretorne: a) Quantosvaloresestãonointervalo[5,15] b) Quantosvaloresestãonointervalo[32,45] c) Quantosvaloresestãoforadosintervalosprevistosacima
 #include <stdio.h>
 
 int main()
