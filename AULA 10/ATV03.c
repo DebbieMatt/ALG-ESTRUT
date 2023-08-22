@@ -1,49 +1,113 @@
-
 #include <stdio.h>
 
-int main()
+
+int main ()
 {
-    int operacao, senha, i, tentativa;
-    float dep, valor;
-    
-  do {
-      printf("Bem vindo, qual operacao deseja realizar: 1 - DEPOSITAR; 2 - CONSULTAR O EXTRATO DA CONTA; 3 - SACAR DINHEIRO; \n ");
-      printf("Por favor, digite a operacao que deseja realizar: \n");
-      scanf ("%d", &operacao);
-      getchar();
-      
-      switch (operacao){
-          case 1:
-          printf("Por favor digite, o valor que deseja depositar: \n");
-          scanf("R$ %.2f", &dep);
-          valor++;
-          break;
-          
-          case 2:
-          printf("Voce tem R$ %.2f de saldo em conta \n", valor);
-          break;
-          
-          case 3:
-          printf("Voce tem R$ %.2f de saldo em conta \n", valor);
-          break;
-      }
-  } while(operacao != -1);
-  
-  printf("É preciso definir uma senha para autorizar as transações, por favor digite uma senha de 4 digitos: \n");
-  scanf("%d", &senha);
-  
-for (i = 0; i < 3; i++){
-     printf("Por favor, para prosseguir com a transação, digite a senha: \n");
-     scanf("%d", &tentativa);
-     
-      if (tentativa == senha){
-          printf("Senha correta. \n");
-      } 
-      else if (tentativa != senha){
-          printf("Senha incorreta. \n");
-      }
-  }
-  
-  printf("Sua senha foi broqueada, procure uma central de atendimento.");
-  
+
+    int senhaCadastro, operacao, senhaTentativa, tentativas=0, flagSenha=0;
+    double saldoConta=0, valorDeposito=0, valorSaque=0;
+
+    printf("Cadastre uma senha: ");
+    scanf("%d", &senhaCadastro);
+
+    printf("Digite 1 para DEPOSITAR\n");
+    printf("Digite 2 para EXTRATO\n");
+    printf("Digite 3 para SACAR\n");
+    scanf("%d", &operacao);
+
+    while (operacao != -1)
+    {
+        flagSenha=0;
+        tentativas=0;
+        if (operacao == 1)
+        {
+            printf("Digite o valor do deposito: ");
+            scanf("%lf", &valorDeposito);
+            // saldoConta += valorDeposito;
+            saldoConta = saldoConta + valorDeposito;
+        }
+        else if (operacao == 2)
+        {
+
+            do
+            {
+                printf("Digite a sua senha: ");
+                scanf("%d", &senhaTentativa);
+                tentativas++;
+                if (senhaCadastro == senhaTentativa)
+                {
+                    printf("O saldo eh: %.2lf", saldoConta);
+                }
+                else if ((senhaCadastro != senhaTentativa)&&(tentativas==3))
+                {
+                    printf("Senha invalida, sua conta foi bloqueada");
+                    //flagSenha=1;
+                    //break;
+                    return 0;
+                }
+                else
+                {
+                    printf("Senha invalida\n");
+                }
+
+            }
+            while (senhaCadastro != senhaTentativa);
+
+
+
+        }
+        else if (operacao == 3)
+        {
+
+            do
+            {
+                printf("Digite a sua senha: ");
+                scanf("%d", &senhaTentativa);
+                tentativas++;
+                if (senhaCadastro == senhaTentativa)
+                {
+                    printf("Digite o valor a ser sacado: ");
+                    scanf("%lf", &valorSaque);
+
+                    if (valorSaque <= saldoConta)
+                    {
+                        saldoConta -= valorSaque;
+                    }
+                    else
+                    {
+                        printf("Saldo insuficiente");
+                    }
+                }
+                else if ((senhaCadastro != senhaTentativa)&&(tentativas==3))
+                {
+                    printf("Senha invalida, sua conta foi bloqueada");
+                    //flagSenha=1;
+                    //break;
+                    return 0;
+                }
+                else
+                {
+                    printf("Senha invalida\n");
+                }
+
+            }
+            while (senhaCadastro != senhaTentativa);
+
+
+        }
+        else
+        {
+            printf("operacao invalida\n");
+        }
+
+        // if (flagSenha != 1){
+        printf("\n Qual operacao deseja realizar: ");
+        scanf("%d", &operacao);
+        //}
+        // else {
+        //   break;
+        //}
+
+    }
+
 }
