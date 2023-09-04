@@ -2,7 +2,6 @@
 
 int comparador(int A, int B, int C){
     
-    int maior, menor;
 if (A < B + C){
    return 0;
 } else {
