@@ -14,7 +14,7 @@ void intervaloImpar(int inicio, int fim){ // procedimento
 }
 
 int main (int argc, char** argv) {
-  int inicio, fim, resultado;
+  int inicio, fim;
 
   for (int cont = 0; cont <= 0 ; cont++) {
     printf("Digite um numero para o inicio de intervalo: \n");
