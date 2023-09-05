@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int comparador(int A, int B, int C){
+int comparador(int A, int B, int C){ // função
     
 if (A < B + C){
    return 0;

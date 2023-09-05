@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int comparador(int A, int B){
+int comparador(int A, int B){ // função 
     
 if (B < A){
    return B;
