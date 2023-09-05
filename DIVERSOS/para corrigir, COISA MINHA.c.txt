@@ -1,0 +1,92 @@
+#include <stdio.h>
+#include <stdlib.h> // esse é para o malloc //
+
+char * FuncClasifica(int idade){
+    
+    // declara como um ponteiro ...
+    char *res;
+    
+    // alocando 20 posições de char
+    // igual ponteiro ...
+    
+    res = malloc(25 * sizeof (char));
+    
+   // char Infantil_A, Infantil_B, Juvenil_A,Juvenil_B, Adulto;
+
+    if ((idade <= 5) || (7<= idade)){
+        
+       res[0] = 'I';
+       res[1] = 'n';
+       res[2] = 'f';
+       res[3] = 'a';
+       res[4] = 'n';
+       res[5] = 't';
+       res[6] = 't';
+       res[7] = 'i';
+       res[8] = 'l';
+       res[9] = '-';
+       res[10] = 'A';
+    }
+    else if ((idade <= 8) || (10 <= idade)){
+        
+       res[0] = 'I';
+       res[1] = 'n';
+       res[2] = 'f';
+       res[3] = 'a';
+       res[4] = 'n';
+       res[5] = 't';
+       res[6] = 't';
+       res[7] = 'i';
+       res[8] = 'l';
+       res[9] = '-';
+       res[10] = 'B';
+    }
+    else if ((idade <= 11) || (13 <= idade)){
+        
+       res[0] = 'J';
+       res[1] = 'u';
+       res[2] = 'v';
+       res[3] = 'e';
+       res[4] = 'n';
+       res[5] = 'i';
+       res[6] = 'l';
+       res[7] = '-';
+       res[8] = 'A';
+    }
+    else if ((idade <= 14) || (17 <= idade)){
+       
+       res[0] = 'J';
+       res[1] = 'u';
+       res[2] = 'v';
+       res[3] = 'e';
+       res[4] = 'n';
+       res[5] = 'i';
+       res[6] = 'l';
+       res[7] = '-';
+       res[8] = 'B';
+    }
+    else if ((idade <= 18) || (40 <= idade)){
+       
+       res[0] = 'A';
+       res[1] = 'd';
+       res[2] = 'u';
+       res[3] = 'l';
+       res[4] = 't';
+       res[5] = 'o';
+    }
+    else {
+        return res;
+    }
+}
+
+int main (int argc, char** argv){
+    
+    int i, idade;
+    
+    for (i = 0; i <= 0; i++){
+        printf("Quantos anos vc tem ?");
+        scanf("%d", &idade);
+    }
+    
+     printf("Sua categoria eh: %s", FuncClasifica(idade));
+}
