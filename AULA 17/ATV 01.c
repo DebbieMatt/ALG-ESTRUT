@@ -1,60 +1,42 @@
-#include <stdio.h> 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int main(){
+int main(int argc, char**argv){
     
-    /*declaração das variáveis*/
+    int matriz[4][4], i;
+    int mult = 1, somaAcim = 0, somaAbaix = 0;
+
+    srand(time(NULL));
+
+    printf( "Matriz:\n" );
     
-    int matriz[5][5], i;
-    int indice1, indice2, maior;
-    
-    printf("Digite a %d° numero inteiro:\n", i + 1);
-    
-    /*utilização do for para percorrer as linhas da matriz do índice 0 até 5 */
-    
-    for(indice1 = 0; indice1 < 5; indice1++){
-        
-            /*utilização do for para percorrer as colunas da matriz do índice 0 até 5 */
+    for(int linha = 0; linha < 4; linha++ ){
+        for(int coluna = 0; coluna < 4; coluna++ ){
             
-            for(indice2 = 0; indice2 < 5; indice2++){
+            matriz[linha][coluna] = 4 + rand() % 4;
             
-            /*a posição correspondente do vetor recebe o valor digitado*/
+            printf( "%3d", matriz[linha][coluna] );
             
-            scanf("%d", &matriz[indice1][indice2]);
-        }
-    }
-    
-    maior = 0;
-    
-    /*busca pela matriz pelo maior número, a váriavel maior armazenará o maior elemento*/
-    
-    for(indice1 = 0; indice1 < 5; indice1++){
-        
-           for(indice2 = 0; indice2 < 5; indice2++){
+            if( linha == coluna ){ // diagonal principal multiplica
+                
+                mult *= matriz[linha][coluna];
+            }
+            
+            else if (coluna > linha ){ // soma diagonal acima da principal 
                
-                if(maior < matriz[indice1][indice2]){
-                
-                    maior = matriz[indice1][indice2];
-                }
+                somaAcim += matriz[linha][coluna];
             }
+            
+            else if (linha > coluna){ // soma diagonal abaixo da principal
+            
+                somaAbaix += matriz[linha][coluna];
+            }
+        }
+        printf( "\n" );
     }
     
-    printf("\nMinha matriz:\n");
-    
-    /*impressão da matriz*/
-    
-    for(indice1 = 0; indice1 < 5; indice1++){
-        
-         printf("\n");
-         
-            for(indice2 = 0; indice2 < 5; indice2++){
-                
-                printf("\t %d ", matriz[indice1][indice2]);
-            }
-    }
-    
-    /*impressão do maior número*/
-    
-    printf("\nMaior numero: %d ", maior);
-    
-    return 0;
-}	
+    printf("\nA) A soma dos  elementos  que  estão  acima  da diagonal  principal: %d", somaAcim);
+    printf("\nB) A soma dos  elementos  que  estão  abaixo  da diagonal  principal: %d", somaAbaix);
+    printf("\nC) A multiplicação  dos  elementos da diagonal principal: %d", mult); 
+}
