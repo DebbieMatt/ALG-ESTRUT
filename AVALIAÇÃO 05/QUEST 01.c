@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+
+
 int main(){
 
     int matriz[4][5], contador, intervalo;
@@ -17,19 +19,15 @@ int main(){
 
     // verificando se o numero digitado pertence ao intervalo
 
-    do { // corrigir do while
+    do {
 
         printf("\ndigite um numero entre 2 e 9: ");
         scanf("%d", &intervalo);
 
-        if (( intervalo > 2) && (intervalo < 9)){
-
-        } 
-        else {
-        printf("digite novamente");
-        }
-
-    }while (( intervalo > 2) || (intervalo < 9));
+        
+    }while ( intervalo < 2 || intervalo > 9);
+    
+    // Imprimindo a matriz
 
     printf("\nminha matriz:\n");
 
@@ -46,7 +44,7 @@ int main(){
                 contador++;
             }
         }
-
+        
         printf("\n");
     }
 
